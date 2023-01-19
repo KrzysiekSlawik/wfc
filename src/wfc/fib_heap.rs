@@ -84,18 +84,6 @@ impl FibHeap
         }
     }
 
-    pub fn minimum(&self) -> Option<(usize, usize, usize)>
-    {
-        match self.min{
-            Some(ref m) => {
-                Some(m.borrow().key)
-            },
-            None => {
-                None
-            }
-        }
-    }
-
     pub fn pop_min(& mut self) -> Option<(usize, usize, usize)>
     {
         match self.min{
@@ -107,20 +95,7 @@ impl FibHeap
                     child.borrow_mut().set_parent(None);
                     self.roots.push(child.clone());
                 }
-                let index = match self.roots.iter().position(|a| a.borrow().key == m.borrow().key) {
-                    Some(i) => {
-                        println!("found min {:?}", m.borrow().key);
-                        i
-                    },
-                    None => {
-                        println!("didn't found min {:?}", m.borrow().key);
-                        if self.map.contains_key(&m.borrow().key)
-                        {
-                            println!("but found in map");
-                        }
-                        panic!();
-                    }
-                };
+                let index = self.roots.iter().position(|a| a.borrow().key == m.borrow().key).unwrap();
                 self.roots.swap_remove(index);
                 self.map.remove(&m.borrow().key);
 
@@ -139,7 +114,6 @@ impl FibHeap
                         }
                     }
                     self.min = Some(new_min.clone());
-                    println!("new min {:?} with value {}", new_min.clone().borrow().key, new_min.clone().borrow().value);
                 }
 
                 self.consolidate();
@@ -186,7 +160,6 @@ impl FibHeap
 
     fn consolidate(& mut self) -> ()
     {
-        println!("pre consolidate {:?}", self.roots.iter().map(|n| n.borrow().key).collect::<Vec<(usize,usize,usize)>>());
         let mut ranked = HashMap::<usize, FibHeapNodeType>::new();
         for node in &self.roots
         {
@@ -207,43 +180,31 @@ impl FibHeap
 
             }
         }
-        println!("post consolidate {:?}", self.roots.iter().map(|n| n.borrow().key).collect::<Vec<(usize,usize,usize)>>());
     }
 
     pub fn decrease_key(& mut self, key: (usize, usize, usize), value: u8) -> ()
     {
-        println!("deckrease_key {:?}", key);
         let node = self.map.get(&key).unwrap().clone();
         {
             node.borrow_mut().value = value;
         }
         let parent = node.borrow().parent.clone();
-        match parent
-        {
-            Some(parent) => {
-                println!("had parent");
-                if parent.borrow().value > node.borrow().value
-                {
-                    println!("had to do cutting");
-                    //need to get order right
-                    self.cut(node.clone(), parent.clone());
-                    self.cascade_cut(parent.clone())
-                }
-                else {
-                    //order is preserved
-                }
-            },
-            None => {
+        if let Some(parent) = parent {
+            if parent.borrow().value > node.borrow().value
+            {
+                //need to get order right
+                self.cut(node.clone(), parent.clone());
+                self.cascade_cut(parent)
+            }
+            else {
                 //order is preserved
             }
         }
         if self.min.clone().unwrap().borrow().value > value
         {
             //update min
-            self.min = Some(node.clone());
-            println!("new min from decrease key {:?} with value {}", node.clone().borrow().key, value);
+            self.min = Some(node);
         }
-        println!("decrease_key end");
     }
 
     fn cut(&mut self, child: FibHeapNodeType, parent: FibHeapNodeType) -> () {
@@ -257,27 +218,21 @@ impl FibHeap
             c.set_parent(None);
             c.marked = false;
         }
-        self.roots.push(child.clone());
-        println!("roots after cut {:?}", self.roots.iter().map(|n| n.borrow().key).collect::<Vec<(usize,usize,usize)>>());
+        self.roots.push(child);
     }
 
     fn cascade_cut(&mut self, node: FibHeapNodeType) -> ()
     {
         let parent = node.borrow().parent.clone();
-        match parent {
-            Some(p) => {
-                if p.borrow().marked
-                {
-                    self.cut(node.clone(), p.clone());
-                    self.cascade_cut(p.clone());
-                }
-                else
-                {
-                    node.borrow_mut().marked = true;
-                }
-            },
-            None => {
-
+        if let Some(p) = parent {
+            if p.borrow().marked
+            {
+                self.cut(node, p.clone());
+                self.cascade_cut(p);
+            }
+            else
+            {
+                node.borrow_mut().marked = true;
             }
         }
     }
