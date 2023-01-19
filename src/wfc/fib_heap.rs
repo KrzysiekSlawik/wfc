@@ -168,17 +168,10 @@ impl FibHeap
                 Self::insert_or_merge(&mut ranked, node.clone());
             }
         }
-        self.roots = ranked.iter()
-                           .map(|(_, x)| x.clone())
+        self.roots = ranked.values().map(|x| x.clone())
                            .collect();
-        match self.min.clone()
-        {
-            Some(m) => {
-                self.roots.push(m.clone());
-            },
-            None => {
-
-            }
+        if let Some(m) = self.min.clone(){
+            self.roots.push(m.clone());
         }
     }
 

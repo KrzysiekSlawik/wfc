@@ -15,7 +15,7 @@ fn main() {
     wfc::queueprop_bitarrayset_fibheap::QueuePropBitArraySetFibHeap::solve(&map, &rules);
 }
 
-fn validate(map: &Vec3D<u8>, rules: &Vec<DirectionMapping<HashSet<u8>>>) -> bool
+fn validate(map: &Vec3D<u8>, rules: &[DirectionMapping<HashSet<u8>>]) -> bool
 {
     for x in 1..map.x_size-1{
         for y in 1..map.y_size-1{

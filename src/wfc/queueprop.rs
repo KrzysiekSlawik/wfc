@@ -56,7 +56,7 @@ impl QueueProp
 
     fn legal_tiles(x: usize, y: usize, z: usize, map: &Vec3D<HashSet<u8>>, rules: &Vec<DirectionMapping<HashSet<u8>>>) -> HashSet<u8>
     {
-        let mut w: Vec<Vec<u8>> = vec![
+        let w: Vec<Vec<u8>> = vec![
             map.get(x, y + 1, z).iter()
                 .map(|&s| rules[s as usize].down())
                 .flatten()
@@ -109,9 +109,7 @@ impl QueueProp
                 None
             }
         });
-
-        let r = HashSet::<u8>::from_iter(filtered.map(|&a| a));
-        r
+        HashSet::<u8>::from_iter(filtered.map(|&a| a))
     }
 
     fn format_solution(solution: &Vec3D<HashSet<u8>>) -> Vec3D<u8>
