@@ -1,0 +1,17 @@
+group,function,value,throughput_num,throughput_type,sample_measured_value,unit,iteration_count
+wfc,queueprop_bitarrayset_fibheap,6,216,elements,44298098.0,ns,3
+wfc,queueprop_bitarrayset_fibheap,6,216,elements,71271175.0,ns,6
+wfc,queueprop_bitarrayset_fibheap,6,216,elements,102880344.0,ns,9
+wfc,queueprop_bitarrayset_fibheap,6,216,elements,134210976.0,ns,12
+wfc,queueprop_bitarrayset_fibheap,6,216,elements,165650483.0,ns,15
+wfc,queueprop_bitarrayset_fibheap,6,216,elements,202928649.0,ns,18
+wfc,queueprop_bitarrayset_fibheap,6,216,elements,233173387.0,ns,21
+wfc,queueprop_bitarrayset_fibheap,6,216,elements,268189000.0,ns,24
+wfc,queueprop_bitarrayset_fibheap,6,216,elements,300279276.0,ns,27
+wfc,queueprop_bitarrayset_fibheap,6,216,elements,335331980.0,ns,30
+wfc,queueprop_bitarrayset_fibheap,6,216,elements,367677187.0,ns,33
+wfc,queueprop_bitarrayset_fibheap,6,216,elements,398937297.0,ns,36
+wfc,queueprop_bitarrayset_fibheap,6,216,elements,514852533.0,ns,39
+wfc,queueprop_bitarrayset_fibheap,6,216,elements,718324332.0,ns,42
+wfc,queueprop_bitarrayset_fibheap,6,216,elements,505954058.0,ns,45
+wfc,queueprop_bitarrayset_fibheap,6,216,elements,531716352.0,ns,48

@@ -1,0 +1,3040 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>wfc Summary - Criterion.rs</title>
+    <style type="text/css">
+        body {
+            font: 14px Helvetica Neue;
+            text-rendering: optimizelegibility;
+        }
+
+        .body {
+            width: 960px;
+            margin: auto;
+        }
+
+        a:link {
+            color: #1F78B4;
+            text-decoration: none;
+        }
+
+        h2 {
+            font-size: 36px;
+            font-weight: 300;
+        }
+
+        h3 {
+            font-size: 24px;
+            font-weight: 300;
+        }
+
+        #footer {
+            height: 40px;
+            background: #888;
+            color: white;
+            font-size: larger;
+            font-weight: 300;
+        }
+
+        #footer a {
+            color: white;
+            text-decoration: underline;
+        }
+
+        #footer p {
+            text-align: center
+        }
+    </style>
+</head>
+
+<body>
+    <div class="body">
+        <h2>wfc</h2>
+        <h3>Violin Plot</h3>
+        <a href="violin.svg">
+            <img src="violin.svg" alt="Violin Plot" />
+        </a>
+        <p>This chart shows the relationship between function/parameter and iteration time. The thickness of the shaded
+            region indicates the probability that a measurement of the given function/parameter would take a particular
+            length of time.</p>
+        <h3>Line Chart</h3>
+        <img src="lines.svg" alt="Line Chart" />
+        <p>This chart shows the mean measured time for each function as the input (or the size of the input) increases.</p>
+        <section class="plots">
+            <a href="../../wfc/baseline/4/report/index.html">
+                <h4>wfc/baseline/4</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/baseline/4/report/pdf.svg">
+                                <img src="../../wfc/baseline/4/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/baseline/4/report/regression.svg">
+                                <img src="../../wfc/baseline/4/report/regression_small.svg" alt="Regression" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/baseline/5/report/index.html">
+                <h4>wfc/baseline/5</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/baseline/5/report/pdf.svg">
+                                <img src="../../wfc/baseline/5/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/baseline/5/report/iteration_times.svg">
+                                <img src="../../wfc/baseline/5/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/baseline/6/report/index.html">
+                <h4>wfc/baseline/6</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/baseline/6/report/pdf.svg">
+                                <img src="../../wfc/baseline/6/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/baseline/6/report/iteration_times.svg">
+                                <img src="../../wfc/baseline/6/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/baseline/7/report/index.html">
+                <h4>wfc/baseline/7</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/baseline/7/report/pdf.svg">
+                                <img src="../../wfc/baseline/7/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/baseline/7/report/iteration_times.svg">
+                                <img src="../../wfc/baseline/7/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/baseline/8/report/index.html">
+                <h4>wfc/baseline/8</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/baseline/8/report/pdf.svg">
+                                <img src="../../wfc/baseline/8/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/baseline/8/report/iteration_times.svg">
+                                <img src="../../wfc/baseline/8/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/baseline/9/report/index.html">
+                <h4>wfc/baseline/9</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/baseline/9/report/pdf.svg">
+                                <img src="../../wfc/baseline/9/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/baseline/9/report/iteration_times.svg">
+                                <img src="../../wfc/baseline/9/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/baseline/10/report/index.html">
+                <h4>wfc/baseline/10</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/baseline/10/report/pdf.svg">
+                                <img src="../../wfc/baseline/10/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/baseline/10/report/iteration_times.svg">
+                                <img src="../../wfc/baseline/10/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/baseline/11/report/index.html">
+                <h4>wfc/baseline/11</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/baseline/11/report/pdf.svg">
+                                <img src="../../wfc/baseline/11/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/baseline/11/report/iteration_times.svg">
+                                <img src="../../wfc/baseline/11/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop/4/report/index.html">
+                <h4>wfc/queueprop/4</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop/4/report/pdf.svg">
+                                <img src="../../wfc/queueprop/4/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop/4/report/regression.svg">
+                                <img src="../../wfc/queueprop/4/report/regression_small.svg" alt="Regression" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop/5/report/index.html">
+                <h4>wfc/queueprop/5</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop/5/report/pdf.svg">
+                                <img src="../../wfc/queueprop/5/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop/5/report/regression.svg">
+                                <img src="../../wfc/queueprop/5/report/regression_small.svg" alt="Regression" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop/6/report/index.html">
+                <h4>wfc/queueprop/6</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop/6/report/pdf.svg">
+                                <img src="../../wfc/queueprop/6/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop/6/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop/6/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop/7/report/index.html">
+                <h4>wfc/queueprop/7</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop/7/report/pdf.svg">
+                                <img src="../../wfc/queueprop/7/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop/7/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop/7/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop/8/report/index.html">
+                <h4>wfc/queueprop/8</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop/8/report/pdf.svg">
+                                <img src="../../wfc/queueprop/8/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop/8/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop/8/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop/9/report/index.html">
+                <h4>wfc/queueprop/9</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop/9/report/pdf.svg">
+                                <img src="../../wfc/queueprop/9/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop/9/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop/9/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop/10/report/index.html">
+                <h4>wfc/queueprop/10</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop/10/report/pdf.svg">
+                                <img src="../../wfc/queueprop/10/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop/10/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop/10/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop/11/report/index.html">
+                <h4>wfc/queueprop/11</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop/11/report/pdf.svg">
+                                <img src="../../wfc/queueprop/11/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop/11/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop/11/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop/12/report/index.html">
+                <h4>wfc/queueprop/12</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop/12/report/pdf.svg">
+                                <img src="../../wfc/queueprop/12/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop/12/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop/12/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop/13/report/index.html">
+                <h4>wfc/queueprop/13</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop/13/report/pdf.svg">
+                                <img src="../../wfc/queueprop/13/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop/13/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop/13/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop/14/report/index.html">
+                <h4>wfc/queueprop/14</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop/14/report/pdf.svg">
+                                <img src="../../wfc/queueprop/14/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop/14/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop/14/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop/15/report/index.html">
+                <h4>wfc/queueprop/15</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop/15/report/pdf.svg">
+                                <img src="../../wfc/queueprop/15/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop/15/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop/15/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop/16/report/index.html">
+                <h4>wfc/queueprop/16</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop/16/report/pdf.svg">
+                                <img src="../../wfc/queueprop/16/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop/16/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop/16/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop/17/report/index.html">
+                <h4>wfc/queueprop/17</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop/17/report/pdf.svg">
+                                <img src="../../wfc/queueprop/17/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop/17/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop/17/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop/18/report/index.html">
+                <h4>wfc/queueprop/18</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop/18/report/pdf.svg">
+                                <img src="../../wfc/queueprop/18/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop/18/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop/18/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop/19/report/index.html">
+                <h4>wfc/queueprop/19</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop/19/report/pdf.svg">
+                                <img src="../../wfc/queueprop/19/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop/19/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop/19/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop/20/report/index.html">
+                <h4>wfc/queueprop/20</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop/20/report/pdf.svg">
+                                <img src="../../wfc/queueprop/20/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop/20/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop/20/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop/21/report/index.html">
+                <h4>wfc/queueprop/21</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop/21/report/pdf.svg">
+                                <img src="../../wfc/queueprop/21/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop/21/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop/21/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop/22/report/index.html">
+                <h4>wfc/queueprop/22</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop/22/report/pdf.svg">
+                                <img src="../../wfc/queueprop/22/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop/22/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop/22/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop/23/report/index.html">
+                <h4>wfc/queueprop/23</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop/23/report/pdf.svg">
+                                <img src="../../wfc/queueprop/23/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop/23/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop/23/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop/24/report/index.html">
+                <h4>wfc/queueprop/24</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop/24/report/pdf.svg">
+                                <img src="../../wfc/queueprop/24/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop/24/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop/24/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop/25/report/index.html">
+                <h4>wfc/queueprop/25</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop/25/report/pdf.svg">
+                                <img src="../../wfc/queueprop/25/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop/25/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop/25/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop/26/report/index.html">
+                <h4>wfc/queueprop/26</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop/26/report/pdf.svg">
+                                <img src="../../wfc/queueprop/26/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop/26/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop/26/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop/27/report/index.html">
+                <h4>wfc/queueprop/27</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop/27/report/pdf.svg">
+                                <img src="../../wfc/queueprop/27/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop/27/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop/27/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop/28/report/index.html">
+                <h4>wfc/queueprop/28</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop/28/report/pdf.svg">
+                                <img src="../../wfc/queueprop/28/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop/28/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop/28/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop/29/report/index.html">
+                <h4>wfc/queueprop/29</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop/29/report/pdf.svg">
+                                <img src="../../wfc/queueprop/29/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop/29/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop/29/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop/30/report/index.html">
+                <h4>wfc/queueprop/30</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop/30/report/pdf.svg">
+                                <img src="../../wfc/queueprop/30/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop/30/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop/30/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop/31/report/index.html">
+                <h4>wfc/queueprop/31</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop/31/report/pdf.svg">
+                                <img src="../../wfc/queueprop/31/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop/31/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop/31/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop/32/report/index.html">
+                <h4>wfc/queueprop/32</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop/32/report/pdf.svg">
+                                <img src="../../wfc/queueprop/32/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop/32/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop/32/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset/4/report/index.html">
+                <h4>wfc/queueprop_bitarrayset/4</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/4/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/4/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/4/report/regression.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/4/report/regression_small.svg" alt="Regression" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset/5/report/index.html">
+                <h4>wfc/queueprop_bitarrayset/5</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/5/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/5/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/5/report/regression.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/5/report/regression_small.svg" alt="Regression" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset/6/report/index.html">
+                <h4>wfc/queueprop_bitarrayset/6</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/6/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/6/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/6/report/regression.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/6/report/regression_small.svg" alt="Regression" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset/7/report/index.html">
+                <h4>wfc/queueprop_bitarrayset/7</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/7/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/7/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/7/report/regression.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/7/report/regression_small.svg" alt="Regression" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset/8/report/index.html">
+                <h4>wfc/queueprop_bitarrayset/8</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/8/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/8/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/8/report/regression.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/8/report/regression_small.svg" alt="Regression" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset/9/report/index.html">
+                <h4>wfc/queueprop_bitarrayset/9</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/9/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/9/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/9/report/regression.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/9/report/regression_small.svg" alt="Regression" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset/10/report/index.html">
+                <h4>wfc/queueprop_bitarrayset/10</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/10/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/10/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/10/report/regression.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/10/report/regression_small.svg" alt="Regression" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset/11/report/index.html">
+                <h4>wfc/queueprop_bitarrayset/11</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/11/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/11/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/11/report/regression.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/11/report/regression_small.svg" alt="Regression" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset/12/report/index.html">
+                <h4>wfc/queueprop_bitarrayset/12</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/12/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/12/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/12/report/regression.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/12/report/regression_small.svg" alt="Regression" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset/13/report/index.html">
+                <h4>wfc/queueprop_bitarrayset/13</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/13/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/13/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/13/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/13/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset/14/report/index.html">
+                <h4>wfc/queueprop_bitarrayset/14</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/14/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/14/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/14/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/14/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset/15/report/index.html">
+                <h4>wfc/queueprop_bitarrayset/15</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/15/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/15/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/15/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/15/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset/16/report/index.html">
+                <h4>wfc/queueprop_bitarrayset/16</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/16/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/16/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/16/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/16/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset/17/report/index.html">
+                <h4>wfc/queueprop_bitarrayset/17</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/17/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/17/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/17/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/17/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset/18/report/index.html">
+                <h4>wfc/queueprop_bitarrayset/18</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/18/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/18/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/18/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/18/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset/19/report/index.html">
+                <h4>wfc/queueprop_bitarrayset/19</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/19/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/19/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/19/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/19/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset/20/report/index.html">
+                <h4>wfc/queueprop_bitarrayset/20</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/20/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/20/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/20/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/20/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset/21/report/index.html">
+                <h4>wfc/queueprop_bitarrayset/21</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/21/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/21/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/21/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/21/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset/22/report/index.html">
+                <h4>wfc/queueprop_bitarrayset/22</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/22/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/22/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/22/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/22/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset/23/report/index.html">
+                <h4>wfc/queueprop_bitarrayset/23</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/23/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/23/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/23/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/23/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset/24/report/index.html">
+                <h4>wfc/queueprop_bitarrayset/24</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/24/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/24/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/24/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/24/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset/25/report/index.html">
+                <h4>wfc/queueprop_bitarrayset/25</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/25/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/25/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/25/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/25/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset/26/report/index.html">
+                <h4>wfc/queueprop_bitarrayset/26</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/26/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/26/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/26/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/26/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset/27/report/index.html">
+                <h4>wfc/queueprop_bitarrayset/27</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/27/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/27/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/27/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/27/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset/28/report/index.html">
+                <h4>wfc/queueprop_bitarrayset/28</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/28/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/28/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/28/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/28/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset/29/report/index.html">
+                <h4>wfc/queueprop_bitarrayset/29</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/29/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/29/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/29/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/29/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset/30/report/index.html">
+                <h4>wfc/queueprop_bitarrayset/30</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/30/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/30/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/30/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/30/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset/31/report/index.html">
+                <h4>wfc/queueprop_bitarrayset/31</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/31/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/31/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/31/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/31/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset/32/report/index.html">
+                <h4>wfc/queueprop_bitarrayset/32</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/32/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/32/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/32/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/32/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset/33/report/index.html">
+                <h4>wfc/queueprop_bitarrayset/33</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/33/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/33/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/33/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/33/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset/34/report/index.html">
+                <h4>wfc/queueprop_bitarrayset/34</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/34/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/34/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/34/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/34/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset/35/report/index.html">
+                <h4>wfc/queueprop_bitarrayset/35</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/35/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/35/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/35/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/35/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset/36/report/index.html">
+                <h4>wfc/queueprop_bitarrayset/36</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/36/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/36/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/36/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/36/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset/37/report/index.html">
+                <h4>wfc/queueprop_bitarrayset/37</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/37/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/37/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/37/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/37/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset/38/report/index.html">
+                <h4>wfc/queueprop_bitarrayset/38</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/38/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/38/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/38/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/38/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset/39/report/index.html">
+                <h4>wfc/queueprop_bitarrayset/39</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/39/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/39/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/39/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/39/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset/40/report/index.html">
+                <h4>wfc/queueprop_bitarrayset/40</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/40/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/40/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/40/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/40/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset/41/report/index.html">
+                <h4>wfc/queueprop_bitarrayset/41</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/41/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/41/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/41/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/41/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset/42/report/index.html">
+                <h4>wfc/queueprop_bitarrayset/42</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/42/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/42/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/42/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/42/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset/43/report/index.html">
+                <h4>wfc/queueprop_bitarrayset/43</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/43/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/43/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/43/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/43/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset/44/report/index.html">
+                <h4>wfc/queueprop_bitarrayset/44</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/44/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/44/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/44/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/44/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset/45/report/index.html">
+                <h4>wfc/queueprop_bitarrayset/45</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/45/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/45/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/45/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/45/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset/46/report/index.html">
+                <h4>wfc/queueprop_bitarrayset/46</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/46/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/46/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/46/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/46/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset/47/report/index.html">
+                <h4>wfc/queueprop_bitarrayset/47</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/47/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/47/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/47/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/47/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset/48/report/index.html">
+                <h4>wfc/queueprop_bitarrayset/48</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/48/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/48/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/48/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/48/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset/49/report/index.html">
+                <h4>wfc/queueprop_bitarrayset/49</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/49/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/49/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset/49/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop_bitarrayset/49/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset_fibheap/4/report/index.html">
+                <h4>wfc/queueprop_bitarrayset_fibheap/4</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/4/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/4/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/4/report/regression.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/4/report/regression_small.svg" alt="Regression" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset_fibheap/5/report/index.html">
+                <h4>wfc/queueprop_bitarrayset_fibheap/5</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/5/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/5/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/5/report/regression.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/5/report/regression_small.svg" alt="Regression" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset_fibheap/6/report/index.html">
+                <h4>wfc/queueprop_bitarrayset_fibheap/6</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/6/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/6/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/6/report/regression.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/6/report/regression_small.svg" alt="Regression" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset_fibheap/7/report/index.html">
+                <h4>wfc/queueprop_bitarrayset_fibheap/7</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/7/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/7/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/7/report/regression.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/7/report/regression_small.svg" alt="Regression" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset_fibheap/8/report/index.html">
+                <h4>wfc/queueprop_bitarrayset_fibheap/8</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/8/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/8/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/8/report/regression.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/8/report/regression_small.svg" alt="Regression" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset_fibheap/9/report/index.html">
+                <h4>wfc/queueprop_bitarrayset_fibheap/9</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/9/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/9/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/9/report/regression.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/9/report/regression_small.svg" alt="Regression" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset_fibheap/10/report/index.html">
+                <h4>wfc/queueprop_bitarrayset_fibheap/10</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/10/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/10/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/10/report/regression.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/10/report/regression_small.svg" alt="Regression" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset_fibheap/11/report/index.html">
+                <h4>wfc/queueprop_bitarrayset_fibheap/11</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/11/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/11/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/11/report/regression.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/11/report/regression_small.svg" alt="Regression" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset_fibheap/12/report/index.html">
+                <h4>wfc/queueprop_bitarrayset_fibheap/12</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/12/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/12/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/12/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/12/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset_fibheap/13/report/index.html">
+                <h4>wfc/queueprop_bitarrayset_fibheap/13</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/13/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/13/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/13/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/13/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset_fibheap/14/report/index.html">
+                <h4>wfc/queueprop_bitarrayset_fibheap/14</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/14/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/14/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/14/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/14/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset_fibheap/15/report/index.html">
+                <h4>wfc/queueprop_bitarrayset_fibheap/15</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/15/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/15/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/15/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/15/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset_fibheap/16/report/index.html">
+                <h4>wfc/queueprop_bitarrayset_fibheap/16</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/16/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/16/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/16/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/16/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset_fibheap/17/report/index.html">
+                <h4>wfc/queueprop_bitarrayset_fibheap/17</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/17/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/17/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/17/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/17/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset_fibheap/18/report/index.html">
+                <h4>wfc/queueprop_bitarrayset_fibheap/18</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/18/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/18/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/18/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/18/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset_fibheap/19/report/index.html">
+                <h4>wfc/queueprop_bitarrayset_fibheap/19</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/19/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/19/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/19/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/19/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset_fibheap/20/report/index.html">
+                <h4>wfc/queueprop_bitarrayset_fibheap/20</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/20/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/20/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/20/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/20/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset_fibheap/21/report/index.html">
+                <h4>wfc/queueprop_bitarrayset_fibheap/21</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/21/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/21/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/21/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/21/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset_fibheap/22/report/index.html">
+                <h4>wfc/queueprop_bitarrayset_fibheap/22</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/22/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/22/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/22/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/22/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset_fibheap/23/report/index.html">
+                <h4>wfc/queueprop_bitarrayset_fibheap/23</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/23/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/23/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/23/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/23/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset_fibheap/24/report/index.html">
+                <h4>wfc/queueprop_bitarrayset_fibheap/24</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/24/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/24/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/24/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/24/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset_fibheap/25/report/index.html">
+                <h4>wfc/queueprop_bitarrayset_fibheap/25</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/25/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/25/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/25/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/25/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset_fibheap/26/report/index.html">
+                <h4>wfc/queueprop_bitarrayset_fibheap/26</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/26/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/26/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/26/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/26/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset_fibheap/27/report/index.html">
+                <h4>wfc/queueprop_bitarrayset_fibheap/27</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/27/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/27/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/27/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/27/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset_fibheap/28/report/index.html">
+                <h4>wfc/queueprop_bitarrayset_fibheap/28</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/28/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/28/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/28/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/28/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset_fibheap/29/report/index.html">
+                <h4>wfc/queueprop_bitarrayset_fibheap/29</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/29/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/29/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/29/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/29/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset_fibheap/30/report/index.html">
+                <h4>wfc/queueprop_bitarrayset_fibheap/30</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/30/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/30/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/30/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/30/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset_fibheap/31/report/index.html">
+                <h4>wfc/queueprop_bitarrayset_fibheap/31</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/31/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/31/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/31/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/31/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset_fibheap/32/report/index.html">
+                <h4>wfc/queueprop_bitarrayset_fibheap/32</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/32/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/32/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/32/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/32/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset_fibheap/33/report/index.html">
+                <h4>wfc/queueprop_bitarrayset_fibheap/33</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/33/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/33/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/33/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/33/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset_fibheap/34/report/index.html">
+                <h4>wfc/queueprop_bitarrayset_fibheap/34</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/34/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/34/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/34/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/34/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset_fibheap/35/report/index.html">
+                <h4>wfc/queueprop_bitarrayset_fibheap/35</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/35/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/35/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/35/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/35/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset_fibheap/36/report/index.html">
+                <h4>wfc/queueprop_bitarrayset_fibheap/36</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/36/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/36/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/36/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/36/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset_fibheap/37/report/index.html">
+                <h4>wfc/queueprop_bitarrayset_fibheap/37</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/37/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/37/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/37/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/37/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset_fibheap/38/report/index.html">
+                <h4>wfc/queueprop_bitarrayset_fibheap/38</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/38/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/38/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/38/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/38/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset_fibheap/39/report/index.html">
+                <h4>wfc/queueprop_bitarrayset_fibheap/39</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/39/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/39/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/39/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/39/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset_fibheap/40/report/index.html">
+                <h4>wfc/queueprop_bitarrayset_fibheap/40</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/40/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/40/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/40/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/40/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset_fibheap/41/report/index.html">
+                <h4>wfc/queueprop_bitarrayset_fibheap/41</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/41/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/41/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/41/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/41/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset_fibheap/42/report/index.html">
+                <h4>wfc/queueprop_bitarrayset_fibheap/42</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/42/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/42/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/42/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/42/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset_fibheap/43/report/index.html">
+                <h4>wfc/queueprop_bitarrayset_fibheap/43</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/43/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/43/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/43/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/43/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset_fibheap/44/report/index.html">
+                <h4>wfc/queueprop_bitarrayset_fibheap/44</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/44/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/44/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/44/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/44/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset_fibheap/45/report/index.html">
+                <h4>wfc/queueprop_bitarrayset_fibheap/45</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/45/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/45/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/45/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/45/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset_fibheap/46/report/index.html">
+                <h4>wfc/queueprop_bitarrayset_fibheap/46</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/46/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/46/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/46/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/46/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset_fibheap/47/report/index.html">
+                <h4>wfc/queueprop_bitarrayset_fibheap/47</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/47/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/47/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/47/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/47/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset_fibheap/48/report/index.html">
+                <h4>wfc/queueprop_bitarrayset_fibheap/48</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/48/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/48/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/48/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/48/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../wfc/queueprop_bitarrayset_fibheap/49/report/index.html">
+                <h4>wfc/queueprop_bitarrayset_fibheap/49</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/49/report/pdf.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/49/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../wfc/queueprop_bitarrayset_fibheap/49/report/iteration_times.svg">
+                                <img src="../../wfc/queueprop_bitarrayset_fibheap/49/report/iteration_times_small.svg" alt="Iteration Times" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+    <div id="footer">
+        <p>This report was generated by
+            <a href="https://github.com/bheisler/criterion.rs">Criterion.rs</a>, a statistics-driven benchmarking
+            library in Rust.</p>
+    </div>
+</body>
+
+</html>
