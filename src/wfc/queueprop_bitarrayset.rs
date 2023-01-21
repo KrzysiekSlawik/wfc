@@ -1,8 +1,6 @@
-use std::{collections::{HashSet, HashMap, VecDeque}, hash::Hash, env::current_exe};
+use std::{collections::{HashSet, VecDeque}};
 
-use crate::{wfc::traits::WFC, vec3d::{Vec3D, PosIter3D}, wfc::utils::get_random};
-
-use super::{direction_mapping::DirectionMapping, rules::{EMPTY, BORDER, self}, utils, bits256_set::Bits256Set};
+use super::{direction_mapping::DirectionMapping, rules::{EMPTY, self}, utils, bits256_set::Bits256Set, vec3d::{Vec3D, PosIter3D}, traits::WFC};
 
 pub struct QueuePropBitArraySet{}
 
@@ -67,7 +65,6 @@ impl QueuePropBitArraySet
 
     fn legal_tiles(x: usize, y: usize, z: usize, map: &Vec3D<Bits256Set>, rules: &Vec<DirectionMapping<Bits256Set>>) -> Bits256Set
     {
-        let k = Bits256Set::new_sum(map.get(x,y+1, z).items().iter().map(|&s| *rules[s as usize].down()).collect::<Vec<Bits256Set>>());
         let dirs = vec![
             Bits256Set::new_sum(map.get(x,y+1, z).items().iter().map(|&s| *rules[s as usize].down()).collect::<Vec<Bits256Set>>()),
             Bits256Set::new_sum(map.get(x,y-1, z).items().iter().map(|&s| *rules[s as usize].up()).collect::<Vec<Bits256Set>>()),

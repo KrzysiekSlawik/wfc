@@ -1,8 +1,6 @@
 use std::{collections::{HashSet, HashMap}};
 
-use crate::{wfc::traits::WFC, vec3d::{Vec3D, PosIter3D}};
-
-use super::{direction_mapping::DirectionMapping, rules::{EMPTY, self}, utils};
+use super::{direction_mapping::DirectionMapping, rules::{EMPTY, self}, utils, vec3d::{Vec3D, PosIter3D}, traits::WFC};
 
 pub struct BaseLine{}
 

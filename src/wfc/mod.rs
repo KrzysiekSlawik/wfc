@@ -7,5 +7,6 @@ pub mod queueprop_bitarrayset_fibheap;
 pub mod direction_mapping;
 pub mod utils;
 pub mod rules;
+pub mod vec3d;
 mod bits256_set;
 mod fib_heap;

@@ -1,8 +1,6 @@
 use std::{collections::HashSet};
 
-use crate::{wfc::traits::WFC, vec3d::Vec3D, wfc::utils::get_random};
-
-use super::{direction_mapping::DirectionMapping, rules::{EMPTY, BORDER}};
+use super::{direction_mapping::DirectionMapping, rules::{EMPTY}, traits::WFC, vec3d::Vec3D, utils::get_random};
 
 pub struct Simple{}
 impl WFC for Simple{

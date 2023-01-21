@@ -1,8 +1,6 @@
-use std::{collections::{HashSet, HashMap, VecDeque}, hash::Hash, env::current_exe};
+use std::{collections::{HashSet, HashMap, VecDeque}};
 
-use crate::{wfc::traits::WFC, vec3d::{Vec3D, PosIter3D}, wfc::utils::get_random};
-
-use super::{direction_mapping::DirectionMapping, rules::{EMPTY, BORDER, self}, utils};
+use super::{direction_mapping::DirectionMapping, rules::{EMPTY, self}, utils, vec3d::{Vec3D, PosIter3D}, traits::WFC};
 
 pub struct QueueProp{}
 
