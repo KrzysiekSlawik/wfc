@@ -18,5 +18,24 @@ criterion = "0.3"
 name = "wfc_bench"
 harness = false
 
+[[bin]]
+name = "baseline"
+path = "baseline_example/main.rs"
+bench = false
+
+[[bin]]
+name = "queueprop"
+path = "queueprop_example/main.rs"
+bench = false
+
+[[bin]]
+name = "queueprop_bitarrayset"
+path = "queueprop_bitarrayset_example/main.rs"
+bench = false
+
+[[bin]]
+name = "queueprop_bitarrayset_fibheap"
+path = "queueprop_bitarrayset_fibheap_example/main.rs"
+bench = false
 
 
