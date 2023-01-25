@@ -85,12 +85,12 @@ As stated by Maxim Gumin, WFC tends to be slower than P. F. Harrison's texture s
 Constraint satisfaction problems (CSPs) are typically defined in terms of decision variables and values. An example of CSP might be the Sudoku game (\ref{fig:sudoku}) in which each location on the grid is variable and values come from digits set. The goal of an algorithm solving CSPs is to find a total assignment (each variable has an assigned value) that does not violate any constraints. \fmlinebreak
 WFC algorithm constructs the solution image by assigning values from a discrete set of unique local patterns from the input image. \cite{Smith} The key observation is that WFC being a CSP solver means that each iteration (every step of the algorithm that assigns to the variable) produces a new valid CSP. This can be used to guide WFC by assigning some variables by hand, as partially solved CSP is still proper input for any CSP solver. (as long as partial assignment does not violate constraints)
 \section{Procedural Content Generation}
-PCG is a powerful tool wherever a high or endless amount of content is required as PCG can reduce the resources spent on new assets by generating them based on those already manually created by artists or creating them entirely based on rules predefined in the algorithm. An important factor in making a decision on when to use PCG is the cost of the preparation algorithm compared with the cost of manually making all assets. In the case of products that require an endless amount of assets PCG is the only available option and it has to be a highly controlled process. The upfront cost of using PCG comes from choosing a well-fitted method, parameter tuning, deeply understanding the design, and knowing how to encode it.
+PCG is a powerful tool wherever a high or endless amount of content is required as PCG can reduce the resources spent on new assets by generating them based on those already manually created by artists or creating them entirely based on rules predefined in the algorithm. An important factor in deciding when to use PCG is the cost of the preparation algorithm compared with the cost of manually making all assets. In the case of products that require an endless amount of assets PCG is the only available option and it has to be a highly controlled process. The upfront cost of using PCG comes from choosing a well-fitted method, parameter tuning, deeply understanding the design, and knowing how to encode it.
 From the game development point of view, two types of PCG can be distinguished. Offline PCG is used for creating assets during development, it doesn't have to produce output in real-time and its output can be checked by artists before being used in the final product. On the other hand, online PCG is used in the final application runtime. It has to work in real-time and produce its output in an acceptable loading screen time. Artists can't check algorithm outputs so it has to be highly controllable and fine-tuned during the development phase.\cite{DesignLevelConstraints}\break\break
 WFC algorithm's main advantages in PCG are ease of use as basic results can be achieved by tuning input image only, high controllability as strict neighbor relations can guarantee the generation of playable content, easily extended by adding additional rules like density, total count, distance on top of neighbor relations. \cite{Smith, DesignLevelConstraints}
 
 \section{Chapters Summary}
-Short summary of the following chapters:
+Summary of the following chapters:
 \begin{itemize}
     \item \ref{chapter2}. WFC Applications - notable examples of how WFC might be used
     \item \ref{chapter3}. The WFC Algorithm - description and analysis of the original algorithm
@@ -128,7 +128,7 @@ WFC algorithm can be used to solve CSPs if properly modified to fit the domain. 
 \caption{blue represents selected Sudoku grid element, yellow represents its neighbors (Source: \cite{GraphBased})}
 \label{fig:sudoku_neighbors}
 \end{figure}
-Backtracking \ref{backtracking}had to be added to WFC for it to be able to produce solutions for Sudoku puzzles as contradictions were common due to very strict rules. Even with backtracking WFC is not performing well as a CSP solver, but on the other hand, it is able to deduce rules of the problem on its own.\cite{GraphBased}
+Backtracking \ref{backtracking}had to be added to WFC for it to be able to produce solutions for Sudoku puzzles as contradictions were common due to very strict rules. Even with backtracking WFC is not performing well as a CSP solver, but on the other hand, it can deduce the rules of the problem on its own.\cite{GraphBased}
 \begin{figure}[H]
 \centering
 \includegraphics[width=1\textwidth, angle=0]{images/fourcolours.png}
@@ -177,13 +177,17 @@ The original implementation uses Boolean vectors of domain length, where each va
 The simplest solution would update all possible variable assignments as long as the system is not stable, however, it is important to note that updating the variable might require an update of each of its neighbors. (updates of variables happen both due to observation and propagation) This makes the propagation phase quite expensive and an obvious candidate for optimizations. The stack can be used to maintain elements that require updating. (as WFC author did in his implementation\ref{stack}) Similarly, the queue can be used\ref{queue}. A comparison of both solutions can be found here \ref{stack_vs_queue}.
 \section{backtracking}
 \label{backtracking}
-In the original WFC implementation there is no backtracking and
+In the original WFC implementation, there is no backtracking, if a contradiction is detected, the algorithm will just retry the whole generation process. Isaac Karth and Adam M. Smith showed in their work that the contradiction rate is dependent on how strict are the rules for assignments. In simple examples shown by Maxim Gumin, the contradiction rate is low enough not to use backtracking but for larger scale problems with more heuristics, the backtracking becomes crucial for the WFC to work correctly.
 \cite{Smith}
 
 
 
 \chapter{Performance Comparison}
 \label{chapter4}
+For performance comparison purposes I've created x versions of WFC in the rust programming language. From the performance point of view the deducing rules phase is not interesting and as a result, is skipped. Instead, input to the algorithm is a tile set with constraints and a tilemap to fill. (it can be partially assigned) I've been running benchmarks on tile set with relaxed restrictions\footnote{each tile has a high number of allowed neighbors}. To eliminate contradictions, the tile set contains tile that can be the neighbor of any other tile. I've added that special tile to make benchmarks more stable.\break
+To ensure the correctness of all solutions, I've created tests that checked if the output followed the given rules. It's important to note that in the case of probabilistic algorithms, these kinds of tests have to be run multiple times to ensure correctness.\break
+I've used the Criterion\footnote{A statistics-driven micro-benchmarking library written in Rust \url{https://docs.rs/criterion/latest/criterion/}} library for benchmarking all implementations.
+For profiling I've used perf\footnote{about perf \url{https://perf.wiki.kernel.org/index.php/Main_Page}} with flamegraph\footnote{cargo flamegraph - the flamegraph generator written in rust \url{https://github.com/flamegraph-rs/flamegraph}}
     \section{baseline}
         \subsection{code analysis}
         \subsection{performance}
@@ -210,7 +214,7 @@ In the original WFC implementation there is no backtracking and
         \subsection{potential improvements}
     \section{Fibonacci Heap for faster finding of lowest non-zero entropy}
     \label{fibheap}
-    This kind of improvement can reduce time complexity from linear to amortized logarithmic for removing min and constant for the decrease key operation.
+    This kind of improvement can reduce time complexity from linear to amortized logarithmic for removing minimum and constant for the decrease key operation.
         \subsection{code analysis}
         \subsection{performance}
         \subsection{potential improvements}
