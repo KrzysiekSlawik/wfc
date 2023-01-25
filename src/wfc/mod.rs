@@ -2,6 +2,7 @@ pub mod traits;
 pub mod simple;
 pub mod baseline;
 pub mod queueprop;
+pub mod stackprop;
 pub mod queueprop_bitarrayset;
 pub mod queueprop_bitarrayset_fibheap;
 pub mod direction_mapping;

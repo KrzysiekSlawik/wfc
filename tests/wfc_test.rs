@@ -1,6 +1,6 @@
 use std::collections::HashSet;
 
-use wfc::wfc::{vec3d::Vec3D, direction_mapping::DirectionMapping, baseline, traits::WFC, rules, queueprop, queueprop_bitarrayset, queueprop_bitarrayset_fibheap};
+use wfc::wfc::{vec3d::Vec3D, direction_mapping::DirectionMapping, baseline, traits::WFC, rules, queueprop, queueprop_bitarrayset, queueprop_bitarrayset_fibheap, stackprop};
 
 fn validate(map: &Vec3D<u8>, rules: &Vec<DirectionMapping<HashSet<u8>>>) -> bool
 {
@@ -39,7 +39,7 @@ fn validate(map: &Vec3D<u8>, rules: &Vec<DirectionMapping<HashSet<u8>>>) -> bool
 
 #[test]
 fn test_baseline(){
-    let size:usize = 4;
+    let size:usize = 8;
     let map = Vec3D::with_borders(size, size, size, rules::EMPTY, rules::BORDER);
     let rules = rules::get_pipes_rules();
     let solution = baseline::BaseLine::solve(&map, &rules);
@@ -48,7 +48,7 @@ fn test_baseline(){
 
 #[test]
 fn test_queueprop(){
-    let size:usize = 4;
+    let size:usize = 20;
     let map = Vec3D::with_borders(size, size, size, rules::EMPTY, rules::BORDER);
     let rules = rules::get_pipes_rules();
     let solution = queueprop::QueueProp::solve(&map, &rules);
@@ -56,8 +56,17 @@ fn test_queueprop(){
 }
 
 #[test]
+fn test_stackprop(){
+    let size:usize = 20;
+    let map = Vec3D::with_borders(size, size, size, rules::EMPTY, rules::BORDER);
+    let rules = rules::get_pipes_rules();
+    let solution = stackprop::StackProp::solve(&map, &rules);
+    assert!(validate(&solution, &rules));
+}
+
+#[test]
 fn test_queueprop_bitarrayset(){
-    let size:usize = 4;
+    let size:usize = 8;
     let map = Vec3D::with_borders(size, size, size, rules::EMPTY, rules::BORDER);
     let rules = rules::get_pipes_rules();
     let solution = queueprop_bitarrayset::QueuePropBitArraySet::solve(&map, &rules);
@@ -66,7 +75,7 @@ fn test_queueprop_bitarrayset(){
 
 #[test]
 fn test_queueprop_bitarrayset_fibheap(){
-    let size:usize = 4;
+    let size:usize = 8;
     let map = Vec3D::with_borders(size, size, size, rules::EMPTY, rules::BORDER);
     let rules = rules::get_pipes_rules();
     let solution = queueprop_bitarrayset_fibheap::QueuePropBitArraySetFibHeap::solve(&map, &rules);

@@ -1,5 +1,5 @@
 use criterion::{black_box, criterion_group, criterion_main, Criterion, Throughput, BenchmarkId};
-use wfc::wfc::{rules, vec3d::Vec3D, baseline, traits::WFC, queueprop, queueprop_bitarrayset, queueprop_bitarrayset_fibheap};
+use wfc::wfc::{rules, vec3d::Vec3D, baseline, traits::WFC, queueprop, queueprop_bitarrayset, queueprop_bitarrayset_fibheap, stackprop};
 
 fn criterion_benchmark(c: &mut Criterion) {
     let mut group = c.benchmark_group("wfc");
@@ -43,5 +43,29 @@ fn criterion_benchmark(c: &mut Criterion) {
     group.finish();
 }
 
-criterion_group!(benches, criterion_benchmark);
+fn criterion_benchmark_queue_stack(c: &mut Criterion) {
+    let mut group = c.benchmark_group("queueVsStack");
+    let rules = rules::get_pipes_rules();
+    for size in 15..33
+    {
+        group.sample_size(usize::max(100/size, 10));
+        group.throughput(Throughput::Elements(size.pow(3) as u64));
+        let input = Vec3D::with_borders(size, size, size, rules::EMPTY, rules::BORDER);
+        group.bench_with_input(
+            BenchmarkId::new("queueprop", size),
+            &input,
+            |b, i| b.iter(|| black_box(
+                queueprop::QueueProp::solve(&i, &rules)
+        )));
+        group.bench_with_input(
+            BenchmarkId::new("stackprop", size),
+            &input,
+            |b, i| b.iter(|| black_box(
+                stackprop::StackProp::solve(&i, &rules)
+        )));
+    }
+    group.finish();
+}
+
+criterion_group!(benches, criterion_benchmark, criterion_benchmark_queue_stack);
 criterion_main!(benches);
