@@ -29,6 +29,11 @@ path = "queueprop_example/main.rs"
 bench = false
 
 [[bin]]
+name = "stackprop"
+path = "stackprop_example/main.rs"
+bench = false
+
+[[bin]]
 name = "queueprop_bitarrayset"
 path = "queueprop_bitarrayset_example/main.rs"
 bench = false
