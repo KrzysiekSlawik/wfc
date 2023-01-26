@@ -1,4 +1,4 @@
-use wfc::wfc::{vec3d::{Vec3D, PosIter3D}, rules, queueprop, traits::WFC};
+use wfc::wfc::{vec3d::{Vec3D, PosIter3D}, rules, traits::WFC, stackprop};
 
 fn main()
 {
