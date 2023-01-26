@@ -1,5 +1,4 @@
-use std::{rc::Rc, collections::HashMap, cell::RefCell};
-
+use std::{rc::Rc, collections::{HashMap, LinkedList}, cell::RefCell};
 type FibHeapNodeType = Rc<RefCell<FibHeapNode>>;
 
 struct FibHeapNode
@@ -8,7 +7,7 @@ struct FibHeapNode
     marked: bool,
     key: (usize, usize, usize),
     parent: Option<FibHeapNodeType>,
-    children: Vec<FibHeapNodeType>
+    children: LinkedList<FibHeapNodeType>
 }
 
 impl FibHeapNode
@@ -20,7 +19,7 @@ impl FibHeapNode
             marked: false,
             key: position,
             parent: parent,
-            children: Vec::<FibHeapNodeType>::new()
+            children: LinkedList::<FibHeapNodeType>::new()
         }))
     }
 
@@ -50,7 +49,7 @@ impl Eq for FibHeapNode {}
 pub struct FibHeap
 {
     map: HashMap<(usize,usize,usize), FibHeapNodeType>,
-    roots: Vec<FibHeapNodeType>,
+    roots: LinkedList<FibHeapNodeType>,
     min: Option<FibHeapNodeType>
 }
 
@@ -60,7 +59,7 @@ impl FibHeap
     {
         FibHeap{
             map: HashMap::new(),
-            roots: Vec::new(),
+            roots: LinkedList::new(),
             min: None
         }
     }
@@ -71,14 +70,14 @@ impl FibHeap
         self.map.insert(position, node.clone());
         match self.min{
             Some(ref m) => {
-                self.roots.push(node.clone());
+                self.roots.push_front(node.clone());
                 if m.borrow().value > node.borrow().value
                 {
                     self.min = Some(node.clone());
                 }
             },
             None => {
-                self.roots.push(node.clone());
+                self.roots.push_front(node.clone());
                 self.min = Some(node.clone());
             }
         }
@@ -89,14 +88,17 @@ impl FibHeap
         match self.min{
             Some(ref m) => {
                 let result = Some(m.borrow().key);
-                let mut children = m.borrow().children.clone();
-                for child in & mut children
                 {
-                    child.borrow_mut().set_parent(None);
-                    self.roots.push(child.clone());
+                    for child in &m.borrow().children
+                    {
+                        child.clone().borrow_mut().set_parent(None);
+                    }
+                }
+                {
+                    self.roots.append(&mut m.borrow_mut().children);
                 }
                 let index = self.roots.iter().position(|a| a.borrow().key == m.borrow().key).unwrap();
-                self.roots.swap_remove(index);
+                self.roots.remove(index);
                 self.map.remove(&m.borrow().key);
 
                 if self.roots.is_empty()
@@ -105,7 +107,7 @@ impl FibHeap
                 }
                 else
                 {
-                    let mut new_min = self.roots[0].clone();
+                    let mut new_min = self.roots.front().unwrap().clone();
                     for node in self.roots.iter().skip(1)
                     {
                         if new_min.borrow().value > node.borrow().value
@@ -135,7 +137,7 @@ impl FibHeap
             {
                 {
                     let mut m = node.borrow_mut();
-                    m.children.push(other_node.clone());
+                    m.children.push_front(other_node.clone());
                     m.marked = false;
                 }
                 other_node.borrow_mut().set_parent(Some(node.clone()));
@@ -145,7 +147,7 @@ impl FibHeap
             {
                 {
                     let mut m = other_node.borrow_mut();
-                    m.children.push(node.clone());
+                    m.children.push_front(node.clone());
                     m.marked = false;
                 }
                 node.borrow_mut().set_parent(Some(other_node.clone()));
@@ -171,7 +173,7 @@ impl FibHeap
         self.roots = ranked.values().map(|x| x.clone())
                            .collect();
         if let Some(m) = self.min.clone(){
-            self.roots.push(m.clone());
+            self.roots.push_front(m.clone());
         }
     }
 
@@ -202,16 +204,16 @@ impl FibHeap
 
     fn cut(&mut self, child: FibHeapNodeType, parent: FibHeapNodeType) -> () {
         {
+            let index = parent.borrow().children.iter().position(|n| n.borrow().key == child.borrow().key).unwrap();
             let p_children = &mut parent.borrow_mut().children;
-            let index = p_children.iter().position(|n| n.borrow().key == child.borrow().key).unwrap();
-            p_children.swap_remove(index);
+            p_children.remove(index);
         }
         {
             let mut c = child.borrow_mut();
             c.set_parent(None);
             c.marked = false;
         }
-        self.roots.push(child);
+        self.roots.push_front(child);
     }
 
     fn cascade_cut(&mut self, node: FibHeapNodeType) -> ()
