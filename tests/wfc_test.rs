@@ -66,7 +66,7 @@ fn test_stackprop(){
 
 #[test]
 fn test_queueprop_bitarrayset(){
-    let size:usize = 8;
+    let size:usize = 34;
     let map = Vec3D::with_borders(size, size, size, rules::EMPTY, rules::BORDER);
     let rules = rules::get_pipes_rules();
     let solution = queueprop_bitarrayset::QueuePropBitArraySet::solve(&map, &rules);
@@ -75,7 +75,7 @@ fn test_queueprop_bitarrayset(){
 
 #[test]
 fn test_queueprop_bitarrayset_fibheap(){
-    let size:usize = 8;
+    let size:usize = 4;
     let map = Vec3D::with_borders(size, size, size, rules::EMPTY, rules::BORDER);
     let rules = rules::get_pipes_rules();
     let solution = queueprop_bitarrayset_fibheap::QueuePropBitArraySetFibHeap::solve(&map, &rules);

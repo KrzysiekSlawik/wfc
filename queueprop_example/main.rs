@@ -2,7 +2,7 @@ use wfc::wfc::{vec3d::{Vec3D, PosIter3D}, rules, queueprop, traits::WFC};
 
 fn main()
 {
-    let size:usize = 15;
+    let size:usize = 20;
     let map = Vec3D::with_borders(size, size, size, rules::EMPTY, rules::BORDER);
     let rules = rules::get_pipes_rules();
     let solution = queueprop::QueueProp::solve(&map, &rules);
