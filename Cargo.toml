@@ -43,4 +43,7 @@ name = "queueprop_bitarrayset_fibheap"
 path = "queueprop_bitarrayset_fibheap_example/main.rs"
 bench = false
 
+[profile.release-with-debug]
+inherits = "release"
+debug = true
 
