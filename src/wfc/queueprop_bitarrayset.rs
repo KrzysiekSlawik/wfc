@@ -55,12 +55,39 @@ impl QueuePropBitArraySet
 
     fn find_minimal(solution: & mut Vec3D<Bits256Set>) -> Option<(usize,usize,usize, Bits256Set)>
     {
-        let mut not_collapsed = PosIter3D::new(&solution)
-                .map(|(x,y,z)| (x,y,z,solution.get(x, y, z)))
-                .filter(|(_, _, _, v)| v.len() > 1)
-                .collect::<Vec<(usize,usize,usize, Bits256Set)>>();
-        not_collapsed.sort_unstable_by(|(_,_,_,a),(_,_,_,b)| a.len().partial_cmp(&b.len()).unwrap());
-        return not_collapsed.pop()
+        PosIter3D::new(solution)
+        .map(|(x,y,z)| Some((x, y, z, solution.get(x, y, z))))
+        .fold(None, |acc, x| {
+            match acc
+            {
+                Some(a) => {
+                    let x = x.unwrap();
+                    let next_len = x.3.len();
+                    let this_len = a.3.len();
+                    if  next_len > 1 && next_len < this_len
+                    {
+                        Some(x)
+                    }
+                    else
+                    {
+                        Some(a)
+                    }
+                },
+                None =>
+                {
+                    let x = x.unwrap();
+                    let next_len = x.3.len();
+                    if next_len > 1
+                    {
+                        Some(x)
+                    }
+                    else
+                    {
+                        None
+                    }
+                }
+            }
+        })
     }
 
     fn legal_tiles(x: usize, y: usize, z: usize, map: &Vec3D<Bits256Set>, rules: &Vec<DirectionMapping<Bits256Set>>) -> Bits256Set
