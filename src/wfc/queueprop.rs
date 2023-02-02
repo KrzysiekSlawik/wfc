@@ -1,4 +1,4 @@
-use std::{collections::{HashSet, VecDeque}};
+use std::collections::{HashSet, VecDeque};
 
 use super::{direction_mapping::DirectionMapping, rules::{EMPTY, self}, utils, vec3d::{Vec3D, PosIter3D}, traits::WFC};
 

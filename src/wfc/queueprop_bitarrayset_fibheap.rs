@@ -1,6 +1,6 @@
-use std::{collections::{HashSet, VecDeque}};
+use std::collections::{HashSet, VecDeque};
 
-use super::{direction_mapping::DirectionMapping, rules::{EMPTY, self}, utils, bits256_set::Bits256Set, fib_heap::{FibHeap}, vec3d::{Vec3D, PosIter3D}, traits::WFC};
+use super::{direction_mapping::DirectionMapping, rules::{EMPTY, self}, utils, bits256_set::Bits256Set, fib_heap::FibHeap, vec3d::{Vec3D, PosIter3D}, traits::WFC};
 
 pub struct QueuePropBitArraySetFibHeap{}
 

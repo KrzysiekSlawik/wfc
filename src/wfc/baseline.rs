@@ -1,4 +1,4 @@
-use std::{collections::{HashSet, HashMap}};
+use std::collections::HashSet;
 
 use super::{direction_mapping::DirectionMapping, rules::{EMPTY, self}, utils, vec3d::{Vec3D, PosIter3D}, traits::WFC};
 
@@ -99,59 +99,59 @@ impl BaseLine
     {
         let w: Vec<Vec<bool>> = vec![
             solution.get(x, y + 1, z)
-               .iter()
-               .zip(0..u8::MAX)
-               .filter_map(|(b, idx)| match b{true => Some(idx), false => None})
-               .map(|idx| rules[idx as usize].down())
-               .fold(vec![false;u8::MAX as usize],|acc:Vec<bool>, b| acc.iter()
-                                                                        .zip(b)
-                                                                        .map(|(&a,&b)| a||b)
-                                                                        .collect()),
+                    .iter()
+                    .zip(0..u8::MAX)
+                    .filter_map(|(b, idx)| match b{true => Some(idx), false => None})
+                    .map(|idx| rules[idx as usize].down())
+                    .fold(vec![false;u8::MAX as usize],|acc:Vec<bool>, b| acc.iter()
+                                                                             .zip(b)
+                                                                             .map(|(&a,&b)| a||b)
+                                                                             .collect()),
             solution.get(x, y - 1, z)
-               .iter()
-               .zip(0..u8::MAX)
-               .filter_map(|(b, idx)| match b{true => Some(idx), false => None})
-               .map(|idx| rules[idx as usize].up())
-               .fold(vec![false;u8::MAX as usize],|acc:Vec<bool>, b| acc.iter()
-                                                                        .zip(b)
-                                                                        .map(|(&a,&b)| a||b)
-                                                                        .collect()),
+                    .iter()
+                    .zip(0..u8::MAX)
+                    .filter_map(|(b, idx)| match b{true => Some(idx), false => None})
+                    .map(|idx| rules[idx as usize].up())
+                    .fold(vec![false;u8::MAX as usize],|acc:Vec<bool>, b| acc.iter()
+                                                                             .zip(b)
+                                                                             .map(|(&a,&b)| a||b)
+                                                                             .collect()),
             solution.get(x - 1, y, z)
-               .iter()
-               .zip(0..u8::MAX)
-               .filter_map(|(b, idx)| match b{true => Some(idx), false => None})
-               .map(|idx| rules[idx as usize].left())
-               .fold(vec![false;u8::MAX as usize],|acc:Vec<bool>, b| acc.iter()
-                                                                        .zip(b)
-                                                                        .map(|(&a,&b)| a||b)
-                                                                        .collect()),
+                    .iter()
+                    .zip(0..u8::MAX)
+                    .filter_map(|(b, idx)| match b{true => Some(idx), false => None})
+                    .map(|idx| rules[idx as usize].left())
+                    .fold(vec![false;u8::MAX as usize],|acc:Vec<bool>, b| acc.iter()
+                                                                             .zip(b)
+                                                                             .map(|(&a,&b)| a||b)
+                                                                             .collect()),
             solution.get(x + 1, y, z)
-               .iter()
-               .zip(0..u8::MAX)
-               .filter_map(|(b, idx)| match b{true => Some(idx), false => None})
-               .map(|idx| rules[idx as usize].right())
-               .fold(vec![false;u8::MAX as usize],|acc:Vec<bool>, b| acc.iter()
-                                                                        .zip(b)
-                                                                        .map(|(&a,&b)| a||b)
-                                                                        .collect()),
+                    .iter()
+                    .zip(0..u8::MAX)
+                    .filter_map(|(b, idx)| match b{true => Some(idx), false => None})
+                    .map(|idx| rules[idx as usize].right())
+                    .fold(vec![false;u8::MAX as usize],|acc:Vec<bool>, b| acc.iter()
+                                                                             .zip(b)
+                                                                             .map(|(&a,&b)| a||b)
+                                                                             .collect()),
             solution.get(x, y, z - 1)
-               .iter()
-               .zip(0..u8::MAX)
-               .filter_map(|(b, idx)| match b{true => Some(idx), false => None})
-               .map(|idx| rules[idx as usize].front())
-               .fold(vec![false;u8::MAX as usize],|acc:Vec<bool>, b| acc.iter()
-                                                                        .zip(b)
-                                                                        .map(|(&a,&b)| a||b)
-                                                                        .collect()),
+                    .iter()
+                    .zip(0..u8::MAX)
+                    .filter_map(|(b, idx)| match b{true => Some(idx), false => None})
+                    .map(|idx| rules[idx as usize].front())
+                    .fold(vec![false;u8::MAX as usize],|acc:Vec<bool>, b| acc.iter()
+                                                                             .zip(b)
+                                                                             .map(|(&a,&b)| a||b)
+                                                                             .collect()),
             solution.get(x, y, z + 1)
-               .iter()
-               .zip(0..u8::MAX)
-               .filter_map(|(b, idx)| match b{true => Some(idx), false => None})
-               .map(|idx| rules[idx as usize].back())
-               .fold(vec![false;u8::MAX as usize],|acc:Vec<bool>, b| acc.iter()
-                                                                        .zip(b)
-                                                                        .map(|(&a,&b)| a||b)
-                                                                        .collect())];
+                    .iter()
+                    .zip(0..u8::MAX)
+                    .filter_map(|(b, idx)| match b{true => Some(idx), false => None})
+                    .map(|idx| rules[idx as usize].back())
+                    .fold(vec![false;u8::MAX as usize],|acc:Vec<bool>, b| acc.iter()
+                                                                             .zip(b)
+                                                                             .map(|(&a,&b)| a||b)
+                                                                             .collect())];
 
         w.iter().fold(vec![true; u8::MAX as usize], |acc, x| acc.iter()
                                                                                                .zip(x)

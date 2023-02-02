@@ -1,4 +1,4 @@
-use std::{collections::{HashSet}};
+use std::collections::HashSet;
 
 use super::{direction_mapping::DirectionMapping, rules::{EMPTY, self}, utils, vec3d::{Vec3D, PosIter3D}, traits::WFC};
 
