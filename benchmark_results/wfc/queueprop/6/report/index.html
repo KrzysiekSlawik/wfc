@@ -95,8 +95,8 @@
                                 </a>
                             </td>
                             <td>
-                                <a href="iteration_times.svg">
-                                    <img src="iteration_times_small.svg" alt="Iteration Times" width="450" height="300" />
+                                <a href="regression.svg">
+                                    <img src="regression_small.svg" alt="Regression" width="450" height="300" />
                                 </a>
                             </td>
                         </tr>
@@ -117,40 +117,46 @@
                         </thead>
                         <tbody>
                             <tr>
+                                <td>Slope</td>
+                                <td class="ci-bound">21.794 ms</td>
+                                <td>21.988 ms</td>
+                                <td class="ci-bound">22.248 ms</td>
+                            </tr>
+                            <tr>
                                 <td>Throughput</td>
-                                <td class="ci-bound">1.6627 Kelem/s</td>
-                                <td>1.6950 Kelem/s</td>
-                                <td class="ci-bound">1.7207 Kelem/s</td>
+                                <td class="ci-bound">9.7086 Kelem/s</td>
+                                <td>9.8236 Kelem/s</td>
+                                <td class="ci-bound">9.9110 Kelem/s</td>
                             </tr>
                             <tr>
                                 <td>R&#xb2;</td>
-                                <td class="ci-bound">0.0069456</td>
-                                <td>0.0081755</td>
-                                <td class="ci-bound">0.0062970</td>
+                                <td class="ci-bound">0.9950508</td>
+                                <td>0.9963957</td>
+                                <td class="ci-bound">0.9939728</td>
                             </tr>
                             <tr>
                                 <td>Mean</td>
-                                <td class="ci-bound">125.53 ms</td>
-                                <td>127.44 ms</td>
-                                <td class="ci-bound">129.91 ms</td>
+                                <td class="ci-bound">21.873 ms</td>
+                                <td>22.154 ms</td>
+                                <td class="ci-bound">22.461 ms</td>
                             </tr>
                             <tr>
                                 <td title="Standard Deviation">Std. Dev.</td>
-                                <td class="ci-bound">1.8422 ms</td>
-                                <td>4.6560 ms</td>
-                                <td class="ci-bound">6.8762 ms</td>
+                                <td class="ci-bound">208.23 µs</td>
+                                <td>501.19 µs</td>
+                                <td class="ci-bound">633.53 µs</td>
                             </tr>
                             <tr>
                                 <td>Median</td>
-                                <td class="ci-bound">125.01 ms</td>
-                                <td>126.16 ms</td>
-                                <td class="ci-bound">128.05 ms</td>
+                                <td class="ci-bound">21.786 ms</td>
+                                <td>21.827 ms</td>
+                                <td class="ci-bound">22.594 ms</td>
                             </tr>
                             <tr>
                                 <td title="Median Absolute Deviation">MAD</td>
-                                <td class="ci-bound">891.46 µs</td>
-                                <td>2.7755 ms</td>
-                                <td class="ci-bound">5.2314 ms</td>
+                                <td class="ci-bound">14.243 µs</td>
+                                <td>87.292 µs</td>
+                                <td class="ci-bound">928.06 µs</td>
                             </tr>
                         </tbody>
                     </table>
@@ -174,6 +180,9 @@
                         <li>
                             <a href="MAD.svg">MAD</a>
                         </li>
+                        <li>
+                            <a href="slope.svg">Slope</a>
+                        </li>
                     </ul>
                 </div>
             </section>
@@ -182,8 +191,9 @@
                 <p>The plot on the left displays the average time per iteration for this benchmark. The shaded region
                     shows the estimated probability of an iteration taking a certain amount of time, while the line
                     shows the mean. Click on the plot for a larger view showing the outliers.</p>
-                <p>The plot on the right shows the average time per iteration for the samples. Each point 
-                    represents one sample.</p>
+                <p>The plot on the right shows the linear regression calculated from the measurements. Each point
+                    represents a sample, though here it shows the total time for the sample rather than time per
+                    iteration. The line is the line of best fit for these measurements.</p>
                 <p>See <a href="https://bheisler.github.io/criterion.rs/book/user_guide/command_line_output.html#additional-statistics">the
                         documentation</a> for more details on the additional statistics.</p>
             </section>

@@ -1,0 +1,11 @@
+group,function,value,throughput_num,throughput_type,sample_measured_value,unit,iteration_count
+wfc,queueprop,33,35937,elements,223492251847.0,ns,1
+wfc,queueprop,33,35937,elements,224297807446.0,ns,1
+wfc,queueprop,33,35937,elements,224180436409.0,ns,1
+wfc,queueprop,33,35937,elements,224840503460.0,ns,1
+wfc,queueprop,33,35937,elements,221963106892.0,ns,1
+wfc,queueprop,33,35937,elements,225134778690.0,ns,1
+wfc,queueprop,33,35937,elements,223285013251.0,ns,1
+wfc,queueprop,33,35937,elements,226485172899.0,ns,1
+wfc,queueprop,33,35937,elements,222933156118.0,ns,1
+wfc,queueprop,33,35937,elements,225402662795.0,ns,1
